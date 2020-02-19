@@ -6,6 +6,7 @@ pipeline {
         stage('Build'){
                 steps{
                     bat 'mvn clean package'
+                    bat "docker build . nginx -t eng:${env.BUILD_ID}"
                 }
             }
 
